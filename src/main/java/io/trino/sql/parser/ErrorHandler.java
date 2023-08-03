@@ -49,7 +49,7 @@ import static java.lang.String.format;
 import static java.util.logging.Level.SEVERE;
 import static org.antlr.v4.runtime.atn.ATNState.RULE_START;
 
-class ErrorHandler
+public class ErrorHandler
         extends BaseErrorListener
 {
     private static final Logger LOG = Logger.getLogger(ErrorHandler.class.getName());
