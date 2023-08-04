@@ -1,6 +1,6 @@
 ZettaBase SQL Parser
 
-#Usage
+# Usage
 
 ZettaBaseSqlReader
 ```java
@@ -30,10 +30,10 @@ ZettaBaseSqlParser
     
 ```
 
-#支持的SQL语法
+# 支持的SQL语法
 目前使用了trinodb的语法描述文件，未做修改，后续需要提供ZettaBase的语法描述文件
 
-#实现说明
+# 实现说明
 使用了trinodb的392版本的源码，做了如下修改：
 * 提取trinodb-parser子项目
 * 修改pom文件，去掉了对trinodb父项目的依赖，补全依赖的版本信息
