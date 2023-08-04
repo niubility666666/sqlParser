@@ -1,4 +1,4 @@
-package zettabase;
+package zettabase.sql;
 
 import java.util.HashSet;
 import java.util.List;

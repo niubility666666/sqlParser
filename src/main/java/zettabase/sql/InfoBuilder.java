@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package zettabase;
+package zettabase.sql;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 import static com.google.common.collect.Iterables.getOnlyElement;
@@ -559,6 +559,7 @@ public class InfoBuilder extends SqlBaseBaseVisitor<Node> {
     public Node visitInsertInto(SqlBaseParser.InsertIntoContext context) {
 
         info.setSqlType(SqlType.INSERT_INTO);
+        info.setName(getQualifiedName(context.qualifiedName()));
 
         Optional<List<Identifier>> columnAliases = Optional.empty();
         if (context.columnAliases() != null) {

@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package zettabase;
+package zettabase.sql;
 
 import static java.util.Objects.requireNonNull;
 
@@ -76,6 +76,12 @@ public class ZettaBaseSqlParser {
         .build();
 
     private final BiConsumer<SqlBaseLexer, SqlBaseParser> initializer;
+
+    private static final ZettaBaseSqlParser instance = new ZettaBaseSqlParser();
+
+    public static ZettaBaseSqlParser getInstance() {
+        return instance;
+    }
 
     public ZettaBaseSqlParser() {
         this(DEFAULT_PARSER_INITIALIZER);
@@ -156,6 +162,10 @@ public class ZettaBaseSqlParser {
 
     public SqlInfo parseInfo(String sql) {
         try {
+            if (sql.trim().endsWith(";")) {
+                sql = sql.trim();
+                sql = sql.substring(0, sql.length() - 1);
+            }
             Function<SqlBaseParser, ParserRuleContext> parseFunction = SqlBaseParser::singleStatement;
             ParsingOptions parsingOptions = new ParsingOptions();
             SqlBaseLexer lexer = new SqlBaseLexer(new CaseInsensitiveStream(CharStreams.fromString(sql)));

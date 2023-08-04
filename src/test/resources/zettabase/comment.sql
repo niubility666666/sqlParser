@@ -1,0 +1,1 @@
+COMMENT ON TABLE PUBLIC."TABLE_COMMENT" IS 'test comment';
