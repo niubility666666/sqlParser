@@ -1,24 +1,24 @@
-ZettaBase SQL Parser
+My SQL Parser
 
 # Usage
 
-ZettaBaseSqlReader
+MySqlReader
 ```java
     # 从文本读取sql文本，并分割成多个独立sql，最后一个sql有可能是不完整的
-    List<String> sqls = ZettaBaseSqlReader.getInstance().readFromText("create table t1(id int); select * from t1; xxx");
+    List<String> sqls = MySqlReader.getInstance().readFromText("create table t1(id int); select * from t1; xxx");
     ...
 
     # 从Class Path读取sql文件，并分隔成多个独立sql
-    List<String> sqls = ZettaBaseSqlReader.getInstance().readFromClassPath("dir/file.sql");
+    List<String> sqls = MySqlReader.getInstance().readFromClassPath("dir/file.sql");
     ...
 
     # 从文件系统读取sql文件，并分割成多个独立sql
-    List<String> sqls = ZettaBaseSqlReader.getInstance().readFromClassPath("dir/file.sql");
+    List<String> sqls = MySqlReader.getInstance().readFromClassPath("dir/file.sql");
     ...
 ```
 ZettaBaseSqlParser
 ```java
-    SqlInfo info = new ZettaBaseSqlParser().parseInfo(sql);
+    SqlInfo info = new MySqlParser().parseInfo(sql);
     #sql的类型，如CREATE_TABLE, DROP_TABLE, QUERY等    
     info.getSqlType();
     #如果sql是ddl，或有一个主操作对象，如create table, update, truncate等，主操作对象信息可以通过如下方法获取
@@ -40,4 +40,4 @@ ZettaBaseSqlParser
 * 修改pom文件，去掉了对trinodb父项目的依赖，补全依赖的版本信息
 * 修改io.trino.parser.AstBuilder和ErrorHandler类为public
 * 基于AstBuilder Visitor类，实现InfoBuilder Visitor类，用于提取sql类型和sql操作对象信息
-* 实现ZettaBaseSqlParser和ZettaBaseSqlReader调用接口
+* 实现MySqlParser和MySqlReader调用接口
