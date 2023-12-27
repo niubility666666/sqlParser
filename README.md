@@ -16,7 +16,7 @@ MySqlReader
     List<String> sqls = MySqlReader.getInstance().readFromClassPath("dir/file.sql");
     ...
 ```
-ZettaBaseSqlParser
+MySqlParser
 ```java
     SqlInfo info = new MySqlParser().parseInfo(sql);
     #sql的类型，如CREATE_TABLE, DROP_TABLE, QUERY等    
