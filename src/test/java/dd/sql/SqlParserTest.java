@@ -1,4 +1,4 @@
-package zettabase.sql;
+package dd.sql;
 
 import java.util.List;
 
@@ -16,19 +16,19 @@ public class SqlParserTest {
     @Test
     public void testParseSingleSql() {
         String sql = "SELECT * FROM USERS WHERE AGE > 30 AND SALARY = 50000;";
-        SqlInfo info = new ZettaBaseSqlParser().parseInfo(sql);
+        SqlInfo info = new MySqlParser().parseInfo(sql);
         System.out.println(info);
     }
 
     @Test
     public void testParseSqlFile() {
-        List<String> sqls = ZettaBaseSqlReader.getInstance().readFromClassPath("zettabase/comment.sql");
+        List<String> sqls = MySqlReader.getInstance().readFromClassPath("dd/comment.sql");
         int i = 1;
         for (String sql : sqls) {
             System.out.println("--------------------------------------");
             System.out.println("[" + i++ + "]" + sql);
             try {
-                SqlInfo info = new ZettaBaseSqlParser().parseInfo(sql);
+                SqlInfo info = new MySqlParser().parseInfo(sql);
                 System.out.println(info);
             } catch (Exception e) {
                 System.out.println("SQL parse failure: " + sql);
@@ -40,7 +40,7 @@ public class SqlParserTest {
     @Test
     public void testParseCreateTable(){
         String sql = "CREATE TABLE T1(ID INT)";
-        SqlInfo info = new ZettaBaseSqlParser().parseInfo(sql);
+        SqlInfo info = new MySqlParser().parseInfo(sql);
         Assertions.assertEquals(SqlType.CREATE_TABLE, info.getSqlType());
         Assertions.assertEquals("t1", info.getObject());
     }

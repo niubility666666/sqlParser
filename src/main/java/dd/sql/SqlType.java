@@ -1,4 +1,4 @@
-package zettabase.sql;
+package dd.sql;
 
 public enum SqlType {
     CREATE_SCHEMA,

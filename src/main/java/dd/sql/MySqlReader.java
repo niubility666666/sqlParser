@@ -1,15 +1,15 @@
-package zettabase.sql;
+package dd.sql;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.trino.sql.parser.StatementSplitter;
 
-public class ZettaBaseSqlReader {
+public class MySqlReader {
 
-    private static final ZettaBaseSqlReader instance = new ZettaBaseSqlReader();
+    private static final MySqlReader instance = new MySqlReader();
 
-    public static ZettaBaseSqlReader getInstance() {
+    public static MySqlReader getInstance() {
         return instance;
     }
 

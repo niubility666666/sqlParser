@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package zettabase.sql;
+package dd.sql;
 
 import static java.util.Objects.requireNonNull;
 
@@ -50,7 +50,7 @@ import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-public class ZettaBaseSqlParser {
+public class MySqlParser {
 
     private static final BaseErrorListener LEXER_ERROR_LISTENER = new BaseErrorListener() {
         @Override
@@ -77,17 +77,17 @@ public class ZettaBaseSqlParser {
 
     private final BiConsumer<SqlBaseLexer, SqlBaseParser> initializer;
 
-    private static final ZettaBaseSqlParser instance = new ZettaBaseSqlParser();
+    private static final MySqlParser instance = new MySqlParser();
 
-    public static ZettaBaseSqlParser getInstance() {
+    public static MySqlParser getInstance() {
         return instance;
     }
 
-    public ZettaBaseSqlParser() {
+    public MySqlParser() {
         this(DEFAULT_PARSER_INITIALIZER);
     }
 
-    public ZettaBaseSqlParser(BiConsumer<SqlBaseLexer, SqlBaseParser> initializer) {
+    public MySqlParser(BiConsumer<SqlBaseLexer, SqlBaseParser> initializer) {
         this.initializer = requireNonNull(initializer, "initializer is null");
     }
 

@@ -1,4 +1,4 @@
-package zettabase.sql;
+package dd.sql;
 
 import java.io.BufferedReader;
 import java.io.File;
